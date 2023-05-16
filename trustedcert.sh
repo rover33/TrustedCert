@@ -42,6 +42,9 @@ adb push  9a5ba575.0 /sdcard/
 adb shell <<EOF
 
 su
+rm -rf /sdcard/certs
+cd /system/etc/security/cacerts 
+rm -rf 9a5ba575.0
 mkdir -m 700 /sdcard/certs
 cp /system/etc/security/cacerts/* /sdcard/certs/
 mount -t tmpfs tmpfs /system/etc/security/cacerts
